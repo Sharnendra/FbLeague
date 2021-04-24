@@ -10,12 +10,12 @@ import com.footballleague.sapient.apibeans.FbApiRestResponse;
 import com.footballleague.sapient.apibeans.TeamBean;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TeamBeanResponse extends FbApiRestResponse implements FbApiResponseData{
+public class TeamBeanResponse extends FbApiRestResponse implements FbApiResponseData {
 
 	public TeamBeanResponse(List<TeamBean> teams) {
 		this.teams = teams;
 	}
-	
+
 	@JsonProperty(value = "Response")
 	private List<TeamBean> teams = new ArrayList<>();
 
@@ -26,5 +26,5 @@ public class TeamBeanResponse extends FbApiRestResponse implements FbApiResponse
 	public void setTeams(List<TeamBean> teams) {
 		this.teams = teams;
 	}
-	
+
 }

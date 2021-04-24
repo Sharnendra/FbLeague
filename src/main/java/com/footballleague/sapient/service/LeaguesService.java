@@ -15,16 +15,16 @@ public class LeaguesService {
 
 	@Autowired
 	private FootBallApiExchange apiExchange;
-	
+
 	public LeagueBeanResponse getLeaguesList(String countryId) {
 		try {
 			LeagueBean[] leaguesList = apiExchange.getLeaguesList(countryId);
-			if(GenericsConstantUtilty.isNullOrEmpty(leaguesList)) {
+			if (GenericsConstantUtilty.isNullOrEmpty(leaguesList)) {
 				throw new FbStrandingResponseException(ErrorConstants.LEAGUES_NOT_FOUND);
 			}
 			return GenericsConstantUtilty.leagueBeanResponseTranslator(leaguesList);
-		}catch (Exception e) {
-			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED+e);
+		} catch (Exception e) {
+			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED + e);
 		}
 	}
 }

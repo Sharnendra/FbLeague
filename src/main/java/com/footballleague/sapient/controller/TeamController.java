@@ -16,27 +16,26 @@ import com.footballleague.sapient.service.TeamService;
 import com.footballleague.sapient.util.GenericsConstantUtilty;
 
 @RestController
-public class TeamController extends BaseController{
+public class TeamController extends BaseController {
 
 	@Autowired
 	private TeamService teamService;
-	
+
 	private static final Logger log = LogManager.getLogger(TeamController.class);
-	
+
 	@PostMapping(UrlConstant.GET_TEAMS)
 	public RestResponse getTeams(@RequestBody SingleRequestBean leagueBean) {
 		RestResponse response = new RestResponse(GenericsConstantUtilty.generateRequestId());
-		setRequestLog(requestLog,response.getRequestId(),null,null,null,"getTeams");
-		log.info(requestLog.toString()+ "== getTeams Start :=====");
+		setRequestLog(requestLog, response.getRequestId(), null, null, null, "getTeams");
+		log.info(requestLog.toString() + "== getTeams Start :=====");
 		try {
 			response.setData(teamService.getTeams(leagueBean.getLeagueId()));
-		}catch (FootBallAppException ex) {
+		} catch (FootBallAppException ex) {
 			response.setError(ex);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			response.setError(new UnhandledException());
-		}
-		finally {
-			log.info(requestLog.toString()+ "== getTeams End :=====");
+		} finally {
+			log.info(requestLog.toString() + "== getTeams End :=====");
 		}
 		return response;
 	}

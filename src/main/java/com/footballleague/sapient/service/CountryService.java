@@ -1,7 +1,5 @@
 package com.footballleague.sapient.service;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +11,20 @@ import com.footballleague.sapient.exception.FbStrandingResponseException;
 import com.footballleague.sapient.util.GenericsConstantUtilty;
 
 @Service
-public class CountryService{
-	
+public class CountryService {
+
 	@Autowired
 	private FootBallApiExchange apiExchange;
 
 	public CountryBeanResponse getCountries() {
 		try {
-			CountryBean[] listOfContries= apiExchange.getCountries();
-			if(GenericsConstantUtilty.isNullOrEmpty(listOfContries)) {
+			CountryBean[] listOfContries = apiExchange.getCountries();
+			if (GenericsConstantUtilty.isNullOrEmpty(listOfContries)) {
 				throw new FbStrandingResponseException(ErrorConstants.COUTRIES_NOT_FOUND);
 			}
-			return new CountryBeanResponse(Arrays.asList(listOfContries));
-		}catch (Exception e) {
-			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED+e);
+			return GenericsConstantUtilty.countryBeanResponseTranslator(listOfContries);
+		} catch (Exception e) {
+			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED + e);
 		}
 	}
 

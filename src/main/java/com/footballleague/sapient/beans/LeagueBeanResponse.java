@@ -9,12 +9,12 @@ import com.footballleague.sapient.apibeans.FbApiRestResponse;
 import com.footballleague.sapient.apibeans.LeagueBean;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LeagueBeanResponse extends FbApiRestResponse implements FbApiResponseData{
+public class LeagueBeanResponse extends FbApiRestResponse implements FbApiResponseData {
 
 	public LeagueBeanResponse(List<LeagueBean> leagues) {
 		this.leagues = leagues;
 	}
-	
+
 	@JsonProperty(value = "Response")
 	private List<LeagueBean> leagues;
 
@@ -25,5 +25,5 @@ public class LeagueBeanResponse extends FbApiRestResponse implements FbApiRespon
 	public void setLeagues(List<LeagueBean> leagues) {
 		this.leagues = leagues;
 	}
-	
+
 }

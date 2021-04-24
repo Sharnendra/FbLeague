@@ -16,35 +16,34 @@ import com.footballleague.sapient.service.StrandingService;
 import com.footballleague.sapient.util.GenericsConstantUtilty;
 
 @RestController
-public class StrandingController extends BaseController{
+public class StrandingController extends BaseController {
 
 	@Autowired
 	private StrandingService strandingService;
-	
+
 	private static final Logger log = LogManager.getLogger(StrandingController.class);
-	
+
 	@PostMapping(UrlConstant.GET_STRANDING)
 	public RestResponse getStranding(@RequestBody SingleRequestBean leagueBean) {
 		RestResponse response = new RestResponse(GenericsConstantUtilty.generateRequestId());
-		setRequestLog(requestLog,response.getRequestId(),null,null,null,"getStranding");
-		log.info(requestLog.toString()+ "== getStranding Start :=====");
+		setRequestLog(requestLog, response.getRequestId(), null, null, null, "getStranding");
+		log.info(requestLog.toString() + "== getStranding Start :=====");
 		try {
 			response.setData(strandingService.getStranding(leagueBean.getLeagueId()));
-		}catch (FootBallAppException ex) {
+		} catch (FootBallAppException ex) {
 			response.setError(ex);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			response.setError(new UnhandledException());
-		}
-		finally {
-			log.info(requestLog.toString()+ "== getStranding End :=====");
+		} finally {
+			log.info(requestLog.toString() + "== getStranding End :=====");
 		}
 		return response;
 	}
-	
+
 	@PostMapping(UrlConstant.GET_STRANDING_DETAILS)
 	public RestResponse getStrandingDetails(@RequestBody SingleRequestBean countryDetails) {
 		RestResponse response = new RestResponse(GenericsConstantUtilty.generateRequestId());
-		setRequestLog(requestLog,response.getRequestId(),null,null,null,"getStrandingDetails");
+		setRequestLog(requestLog, response.getRequestId(), null, null, null, "getStrandingDetails");
 		response.setData(strandingService.getStrandingDetails(countryDetails));
 		return response;
 	}

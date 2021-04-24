@@ -8,12 +8,12 @@ public class Coach {
 
 	@JsonProperty("coach_name")
 	private String coachName;
-	
+
 	@JsonProperty("coach_country")
 	private String coachCountry;
-	
+
 	@JsonProperty("coach_age")
-    private String coachAge;
+	private String coachAge;
 
 	public String getCoachName() {
 		return coachName;

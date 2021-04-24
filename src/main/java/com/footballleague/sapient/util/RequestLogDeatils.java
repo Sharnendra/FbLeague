@@ -13,42 +13,53 @@ public class RequestLogDeatils {
 	private String sapCode;
 	private String mobileNumber;
 	private String deviceIdentifier;
+
 	public String getRequestId() {
 		return requestId;
 	}
+
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
+
 	public String getActivity() {
 		return activity;
 	}
+
 	public void setActivity(String activity) {
 		this.activity = activity;
 	}
+
 	public String getSapCode() {
 		return sapCode;
 	}
+
 	public void setSapCode(String sapCode) {
 		this.sapCode = sapCode;
 	}
+
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
+
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
 	public String getDeviceIdentifier() {
 		return deviceIdentifier;
 	}
+
 	public void setDeviceIdentifier(String deviceIdentifier) {
 		this.deviceIdentifier = deviceIdentifier;
 	}
+
 	@Override
 	public String toString() {
 //		return "\nRequestLogDeatils: \n{\n\trequestId=" + requestId + ", \n\tactivity=" + activity + ",\n\tsapCode=" + sapCode
 //				+ ", \n\tmobileNumber=" + mobileNumber + ",\n\tdeviceIdentifier=" + deviceIdentifier + "\n}\n";
-		return requestId+'/'+activity+'/'+(deviceIdentifier!=null?deviceIdentifier: "NA")+'/'+(sapCode!=null?sapCode:"NA")+" -- ";
+		return requestId + '/' + activity + '/' + (deviceIdentifier != null ? deviceIdentifier : "NA") + '/'
+				+ (sapCode != null ? sapCode : "NA") + " -- ";
 	}
-	
 
 }

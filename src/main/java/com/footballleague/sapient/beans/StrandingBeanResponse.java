@@ -9,8 +9,8 @@ import com.footballleague.sapient.apibeans.FbApiRestResponse;
 import com.footballleague.sapient.apibeans.StrandingBean;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StrandingBeanResponse extends FbApiRestResponse implements FbApiResponseData{
-	
+public class StrandingBeanResponse extends FbApiRestResponse implements FbApiResponseData {
+
 	public StrandingBeanResponse(List<StrandingBean> strandings) {
 		this.strandings = strandings;
 	}

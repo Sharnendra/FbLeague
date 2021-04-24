@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@ConfigurationProperties(prefix="competitions")
+@ConfigurationProperties(prefix = "competitions")
 @EnableConfigurationProperties
 @Component
 public class FbLeagueApiConstants {
@@ -19,5 +19,5 @@ public class FbLeagueApiConstants {
 	public void setUrls(UrlData urls) {
 		this.urls = urls;
 	}
-	
+
 }

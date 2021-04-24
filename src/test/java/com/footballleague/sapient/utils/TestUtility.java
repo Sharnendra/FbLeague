@@ -15,7 +15,7 @@ public class TestUtility {
 		ob.setCountryName("name 1");
 		ob.setCountryLogo("logo 1");
 		resp[0] = ob;
-		
+
 		ob = new CountryBean();
 		ob.setCountryId(2);
 		ob.setCountryName("name 2");
@@ -23,7 +23,7 @@ public class TestUtility {
 		resp[1] = ob;
 		return resp;
 	}
-	
+
 	public static LeagueBean[] getLeaguesBeanArray() {
 		LeagueBean[] resp = new LeagueBean[2];
 		LeagueBean ob1 = new LeagueBean();
@@ -32,7 +32,7 @@ public class TestUtility {
 		ob1.setLeagueId("League 1");
 		ob1.setLeagueName("league name 1");
 		resp[0] = ob1;
-		
+
 		ob1 = new LeagueBean();
 		ob1.setCountryId("2");
 		ob1.setCountryName("name 2");
@@ -41,21 +41,21 @@ public class TestUtility {
 		resp[1] = ob1;
 		return resp;
 	}
-	
+
 	public static TeamBean[] getTeamBeanArray() {
 		TeamBean[] resp = new TeamBean[2];
 		TeamBean ob1 = new TeamBean();
 		ob1.setTeamKey("1");
 		ob1.setTeamName("Team 1");
 		resp[0] = ob1;
-		
+
 		ob1 = new TeamBean();
 		ob1.setTeamKey("2");
 		ob1.setTeamName("Team 2");
 		resp[1] = ob1;
 		return resp;
-	} 
-	
+	}
+
 	public static StrandingBean[] getStrandingBean() {
 		StrandingBean[] resp = new StrandingBean[2];
 		StrandingBean ob = new StrandingBean();
@@ -65,7 +65,7 @@ public class TestUtility {
 		ob.setLeagueName("league name 1");
 		ob.setCountryname("name 1");
 		resp[0] = ob;
-		
+
 		ob = new StrandingBean();
 		ob.setTeamId("2");
 		ob.setTeamName("Team 2");
@@ -75,7 +75,7 @@ public class TestUtility {
 		resp[1] = ob;
 		return resp;
 	}
-	
+
 	public static SingleRequestBean getSingleRequestBean() {
 		SingleRequestBean countryDetails = new SingleRequestBean();
 		StrandingBean[] strandingBean = getStrandingBean();
@@ -87,7 +87,7 @@ public class TestUtility {
 		countryDetails.setTeamName(strandingBean[0].getTeamName());
 		return countryDetails;
 	}
-	
+
 	public static SingleRequestBean getSingleRequestNullBean() {
 		SingleRequestBean countryDetails = new SingleRequestBean();
 		countryDetails.setCountryId(3);

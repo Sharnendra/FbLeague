@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.footballleague.sapient.util.RequestLogDeatils;
 
 public abstract class BaseController {
-	
+
 	@Autowired
 	RequestLogDeatils requestLog;
-	
+
 	void setRequestLog(RequestLogDeatils requestLog, String requestId, String sapCode, String mobileNumber,
 			String deviceIdentifier, String activity) {
 		requestLog.setRequestId(requestId);

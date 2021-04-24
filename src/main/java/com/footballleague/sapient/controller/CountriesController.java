@@ -14,27 +14,26 @@ import com.footballleague.sapient.service.CountryService;
 import com.footballleague.sapient.util.GenericsConstantUtilty;
 
 @RestController
-public class CountriesController extends BaseController{
-	
+public class CountriesController extends BaseController {
+
 	@Autowired
 	private CountryService coutryService;
-	
+
 	private static final Logger log = LogManager.getLogger(CountriesController.class);
-	
+
 	@GetMapping(UrlConstant.GET_COUNTRIES)
 	public RestResponse getCountry() {
 		RestResponse response = new RestResponse(GenericsConstantUtilty.generateRequestId());
-		setRequestLog(requestLog,response.getRequestId(),null,null,null,"getCountry");
-		log.info(requestLog.toString()+ "== getCountry Start :=====");
+		setRequestLog(requestLog, response.getRequestId(), null, null, null, "getCountry");
+		log.info(requestLog.toString() + "== getCountry Start :=====");
 		try {
 			response.setData(coutryService.getCountries());
-		}catch (FootBallAppException ex) {
+		} catch (FootBallAppException ex) {
 			response.setError(ex);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			response.setError(new UnhandledException());
-		}
-		finally {
-			log.info(requestLog.toString()+ "== getCountry End :=====");
+		} finally {
+			log.info(requestLog.toString() + "== getCountry End :=====");
 		}
 		return response;
 	}

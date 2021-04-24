@@ -15,16 +15,16 @@ public class TeamService {
 
 	@Autowired
 	private FootBallApiExchange apiExchange;
-	
+
 	public TeamBeanResponse getTeams(String leagueId) {
 		try {
 			TeamBean[] teams = apiExchange.getTeams(leagueId);
-			if(GenericsConstantUtilty.isNullOrEmpty(teams)) {
+			if (GenericsConstantUtilty.isNullOrEmpty(teams)) {
 				throw new FbStrandingResponseException(ErrorConstants.TEAMS_NOT_FOUND);
 			}
 			return GenericsConstantUtilty.teamBeanResponseTranslator(teams);
-		}catch (Exception e) {
-			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED+e);
+		} catch (Exception e) {
+			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED + e);
 		}
 	}
 

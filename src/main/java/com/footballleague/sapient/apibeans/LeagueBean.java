@@ -8,13 +8,13 @@ public class LeagueBean {
 
 	@JsonProperty("country_id")
 	private String countryId;
-	
+
 	@JsonProperty("country_name")
 	private String countryName;
-	
+
 	@JsonProperty("league_id")
 	private String leagueId;
-	
+
 	@JsonProperty("league_name")
 	private String leagueName;
 
@@ -49,5 +49,5 @@ public class LeagueBean {
 	public void setLeagueName(String leagueName) {
 		this.leagueName = leagueName;
 	}
-	
+
 }

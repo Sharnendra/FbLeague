@@ -8,90 +8,90 @@ public class StrandingBean {
 
 	@JsonProperty("country_name")
 	public String countryname;
-	
+
 	@JsonProperty("league_id")
-    public String leagueId;
-	
+	public String leagueId;
+
 	@JsonProperty("league_name")
-    public String leagueName;
-	
+	public String leagueName;
+
 	@JsonProperty("team_id")
-    public String teamId;
-	
+	public String teamId;
+
 	@JsonProperty("team_name")
-    public String teamName;
-	
+	public String teamName;
+
 	@JsonProperty("overall_league_position")
-    public String overallLeaguePosition;
-	
+	public String overallLeaguePosition;
+
 	@JsonProperty("overall_league_payed")
-    public String overallLeaguePayed;
-	
+	public String overallLeaguePayed;
+
 	@JsonProperty("overall_league_W")
-    public String overallLeagueW;
-	
+	public String overallLeagueW;
+
 	@JsonProperty("overall_league_D")
-    public String overallLeagueD;
-	
+	public String overallLeagueD;
+
 	@JsonProperty("overall_league_L")
-    public String overallLeagueL;
-	
+	public String overallLeagueL;
+
 	@JsonProperty("overall_league_GF")
-    public String overallLeagueGF;
-	
+	public String overallLeagueGF;
+
 	@JsonProperty("overall_league_GA")
-    public String overallLeagueGA;
-	
+	public String overallLeagueGA;
+
 	@JsonProperty("overall_league_PTS")
-    public String overallLeaguePTS;
-	
+	public String overallLeaguePTS;
+
 	@JsonProperty("home_league_position")
-    public String homeLeaguePosition;
-	
+	public String homeLeaguePosition;
+
 	@JsonProperty("home_league_payed")
-    public String homeLeaguePayed;
-	
+	public String homeLeaguePayed;
+
 	@JsonProperty("home_league_W")
-    public String homeLeagueW;
-	
+	public String homeLeagueW;
+
 	@JsonProperty("home_league_D")
-    public String homeLeagueD;
-	
+	public String homeLeagueD;
+
 	@JsonProperty("home_league_L")
-    public String homeLeagueL;
-	
+	public String homeLeagueL;
+
 	@JsonProperty("home_league_GF")
-    public String homeLeagueGF;
-	
+	public String homeLeagueGF;
+
 	@JsonProperty("home_league_GA")
-    public String homeLeagueGA;
-	
+	public String homeLeagueGA;
+
 	@JsonProperty("home_league_PTS")
-    public String homeLeaguePTS;
-	
+	public String homeLeaguePTS;
+
 	@JsonProperty("away_league_position")
-    public String awayLeaguePosition;
-	
+	public String awayLeaguePosition;
+
 	@JsonProperty("away_league_payed")
-    public String awayLeaguePayed;
-	
+	public String awayLeaguePayed;
+
 	@JsonProperty("away_league_W")
-    public String awayLeagueW;
-	
+	public String awayLeagueW;
+
 	@JsonProperty("away_league_D")
-    public String awayLeagueD;
-	
+	public String awayLeagueD;
+
 	@JsonProperty("away_league_L")
-    public String awayLeagueL;
-	
+	public String awayLeagueL;
+
 	@JsonProperty("away_league_GF")
-    public String awayLeagueGF;
-	
+	public String awayLeagueGF;
+
 	@JsonProperty("away_league_GA")
-    public String awayLeagueGA;
-	
+	public String awayLeagueGA;
+
 	@JsonProperty("away_league_PTS")
-    public String awayLeaguePTS;
+	public String awayLeaguePTS;
 
 	public String getCountryname() {
 		return countryname;

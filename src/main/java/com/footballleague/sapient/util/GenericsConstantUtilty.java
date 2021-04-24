@@ -9,10 +9,12 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.footballleague.sapient.apibeans.CountryBean;
 import com.footballleague.sapient.apibeans.LeagueBean;
 import com.footballleague.sapient.apibeans.SingleRequestBean;
 import com.footballleague.sapient.apibeans.StrandingBean;
 import com.footballleague.sapient.apibeans.TeamBean;
+import com.footballleague.sapient.beans.CountryBeanResponse;
 import com.footballleague.sapient.beans.LeagueBeanResponse;
 import com.footballleague.sapient.beans.StrandingBeanResponse;
 import com.footballleague.sapient.beans.TeamBeanResponse;
@@ -20,15 +22,17 @@ import com.footballleague.sapient.exception.RestTemplateResponseErrorHandler;
 
 @Component
 public class GenericsConstantUtilty {
-	
-	public static final RestTemplate REST_TEMPLATE =new RestTemplate();
-	static
-	{
+
+	public static final RestTemplate REST_TEMPLATE = new RestTemplate();
+	static {
 		REST_TEMPLATE.setErrorHandler(new RestTemplateResponseErrorHandler());
 	}
-	
-	public static final String REST_EXCEPTION_RESPONSE=" Returning Response : ";
-	
+
+	public static final String REST_EXCEPTION_RESPONSE = " Returning Response : ";
+
+	public static final String SUCCESS = "Success";
+	public static final String DATA_FOUND = "Data Found";
+
 	/**
 	 * This method checks whether the source String is empty.
 	 *
@@ -118,61 +122,64 @@ public class GenericsConstantUtilty {
 
 		return !isNullOrEmpty(source);
 	}
-	
+
+	public static CountryBeanResponse countryBeanResponseTranslator(CountryBean[] listOfContries) {
+		CountryBeanResponse response = new CountryBeanResponse(Arrays.asList(listOfContries));
+		response.setStatus(SUCCESS);
+		response.setMessage(DATA_FOUND);
+		return response;
+	}
+
 	public static LeagueBeanResponse leagueBeanResponseTranslator(LeagueBean[] leagues) {
 		LeagueBeanResponse leagueBeanResponse = new LeagueBeanResponse(Arrays.asList(leagues));
-		leagueBeanResponse.setStatus("Success");
-		leagueBeanResponse.setMessage("Data Found");
+		leagueBeanResponse.setStatus(SUCCESS);
+		leagueBeanResponse.setMessage(DATA_FOUND);
 		return leagueBeanResponse;
 	}
-	
+
 	public static TeamBeanResponse teamBeanResponseTranslator(TeamBean[] listofTeams) {
 		TeamBeanResponse teamBeanResponse = new TeamBeanResponse(Arrays.asList(listofTeams));
-		teamBeanResponse.setStatus("Success");
-		teamBeanResponse.setMessage("Data Found");
+		teamBeanResponse.setStatus(SUCCESS);
+		teamBeanResponse.setMessage(DATA_FOUND);
 		return teamBeanResponse;
 	}
-	
+
 	public static StrandingBeanResponse strandingBeanResponseTranslator(StrandingBean[] strandings) {
 		StrandingBeanResponse strandingBeanResponse = new StrandingBeanResponse(Arrays.asList(strandings));
-		strandingBeanResponse.setStatus("Success");
-		strandingBeanResponse.setMessage("Data Found");
-		return new StrandingBeanResponse(Arrays.asList(strandings));
+		strandingBeanResponse.setStatus(SUCCESS);
+		strandingBeanResponse.setMessage(DATA_FOUND);
+		return strandingBeanResponse;
 	}
-	
+
 	public static LeagueBean getLeagueDetails(List<LeagueBean> list, SingleRequestBean countryDetails) {
-		return Optional.ofNullable(list.stream()
-				.filter(x -> x.getCountryName().equals(countryDetails.getCountryName()))
-				.findFirst())
-				.map(x -> x.get())
-				.orElse(null);
+		return Optional.ofNullable(
+				list.stream().filter(x -> x.getCountryName().equals(countryDetails.getCountryName())).findFirst())
+				.map(x -> x.get()).orElse(null);
 	}
-	
+
 	public static TeamBean getTeamDetails(List<TeamBean> teams, SingleRequestBean data) {
-		return Optional.ofNullable(teams.stream().filter(x -> x.getTeamKey().equals(data.getTeamId()) 
-				&& x.getTeamName().equals(data.getTeamName()))
-				.findFirst())
-				.map(x -> x.get())
-				.orElse(null); 
+		return Optional.ofNullable(teams.stream()
+				.filter(x -> x.getTeamKey().equals(data.getTeamId()) && x.getTeamName().equals(data.getTeamName()))
+				.findFirst()).map(x -> x.get()).orElse(null);
 	}
 
 	public static StrandingBean getStrandingDetails(List<StrandingBean> strandings, SingleRequestBean countryDetails) {
 		StrandingBean data = null;
 		Optional<StrandingBean> resp = strandings.stream()
-		.filter(x -> x.getTeamId().equals(countryDetails.getTeamId())
-				&& x.getTeamName().equals(countryDetails.getTeamName())
-				&& x.getLeagueId().equals(countryDetails.getLeagueId())
-				&& x.getLeagueName().equals(countryDetails.getLeagueName())
-				&& x.getCountryname().equals(countryDetails.getCountryName()))
-		.findFirst();
+				.filter(x -> x.getTeamId().equals(countryDetails.getTeamId())
+						&& x.getTeamName().equals(countryDetails.getTeamName())
+						&& x.getLeagueId().equals(countryDetails.getLeagueId())
+						&& x.getLeagueName().equals(countryDetails.getLeagueName())
+						&& x.getCountryname().equals(countryDetails.getCountryName()))
+				.findFirst();
 		try {
 			data = resp.get();
-		}catch (Exception e) {
+		} catch (Exception e) {
 		}
 		return data;
 	}
-	
+
 	public static String generateRequestId() {
 		return UUID.randomUUID().toString();
-	}	
+	}
 }

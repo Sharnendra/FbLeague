@@ -23,12 +23,12 @@ public class StrandingService {
 	public StrandingBeanResponse getStranding(String leagueId) {
 		try {
 			StrandingBean[] stranding = apiExchange.getStranding(leagueId);
-			if(GenericsConstantUtilty.isNullOrEmpty(stranding)) {
+			if (GenericsConstantUtilty.isNullOrEmpty(stranding)) {
 				throw new FbStrandingResponseException(ErrorConstants.NO_STRANDING_LIST_FOUND);
 			}
 			return GenericsConstantUtilty.strandingBeanResponseTranslator(stranding);
-		}catch (Exception e) {
-			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED+e);
+		} catch (Exception e) {
+			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED + e);
 		}
 	}
 
@@ -36,22 +36,21 @@ public class StrandingService {
 		StrandingBeanResponse response = null;
 		try {
 			StrandingBean[] stranding = apiExchange.getStranding(countryDetails.getLeagueId());
-			if(GenericsConstantUtilty.isNullOrEmpty(stranding)) {
+			if (GenericsConstantUtilty.isNullOrEmpty(stranding)) {
 				throw new FbStrandingResponseException(ErrorConstants.NO_STRANDING_LIST_FOUND);
 			}
-			response = GenericsConstantUtilty
-					.strandingBeanResponseTranslator(stranding);
-			StrandingBean strandingBean = GenericsConstantUtilty
-					.getStrandingDetails(response.getStrandings(), countryDetails);
-			if(GenericsConstantUtilty.isNullOrEmpty(strandingBean)) {
+			response = GenericsConstantUtilty.strandingBeanResponseTranslator(stranding);
+			StrandingBean strandingBean = GenericsConstantUtilty.getStrandingDetails(response.getStrandings(),
+					countryDetails);
+			if (GenericsConstantUtilty.isNullOrEmpty(strandingBean)) {
 				response.setMessage(ErrorConstants.DATA_NOT_FOUND_FOR_STRNDING);
 				response.setStrandings(null);
 				return response;
 			}
 			response.setStrandings(new ArrayList<StrandingBean>(Arrays.asList(strandingBean)));
 			return response;
-		}catch (Exception e) {
-			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED+e);
+		} catch (Exception e) {
+			throw new FbStrandingResponseException(ErrorConstants.REST_TEMPLATE_CALL_FAILED + e);
 		}
 	}
 

@@ -16,27 +16,26 @@ import com.footballleague.sapient.service.LeaguesService;
 import com.footballleague.sapient.util.GenericsConstantUtilty;
 
 @RestController
-public class LeaguesController extends BaseController{
+public class LeaguesController extends BaseController {
 
 	@Autowired
 	private LeaguesService leaguesService;
-	
+
 	private static final Logger log = LogManager.getLogger(LeaguesController.class);
-	
+
 	@PostMapping(UrlConstant.GET_LEAGUES)
 	public RestResponse getLeagues(@RequestBody SingleRequestBean country) {
 		RestResponse response = new RestResponse(GenericsConstantUtilty.generateRequestId());
-		setRequestLog(requestLog,response.getRequestId(),null,null,null,"getLeagues");
-		log.info(requestLog.toString()+ "== getLeagues Start :=====");
+		setRequestLog(requestLog, response.getRequestId(), null, null, null, "getLeagues");
+		log.info(requestLog.toString() + "== getLeagues Start :=====");
 		try {
 			response.setData(leaguesService.getLeaguesList(String.valueOf(country.getCountryId())));
-		}catch (FootBallAppException ex) {
+		} catch (FootBallAppException ex) {
 			response.setError(ex);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			response.setError(new UnhandledException());
-		}
-		finally {
-			log.info(requestLog.toString()+ "== getLeagues End :=====");
+		} finally {
+			log.info(requestLog.toString() + "== getLeagues End :=====");
 		}
 		return response;
 	}

@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CountryBean{
+public class CountryBean {
 
 	@JsonProperty("country_id")
 	private int countryId;
-	
+
 	@JsonProperty("country_name")
 	private String countryName;
-	
+
 	@JsonProperty("country_logo")
 	private String countryLogo;
 
