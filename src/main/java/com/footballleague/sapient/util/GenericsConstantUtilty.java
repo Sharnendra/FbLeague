@@ -157,14 +157,19 @@ public class GenericsConstantUtilty {
 	}
 
 	public static StrandingBean getStrandingDetails(List<StrandingBean> strandings, SingleRequestBean countryDetails) {
-		return Optional.ofNullable(strandings.stream().filter(x -> x.getTeamId().equals(countryDetails.getTeamId())
+		StrandingBean data = null;
+		Optional<StrandingBean> resp = strandings.stream()
+		.filter(x -> x.getTeamId().equals(countryDetails.getTeamId())
 				&& x.getTeamName().equals(countryDetails.getTeamName())
 				&& x.getLeagueId().equals(countryDetails.getLeagueId())
 				&& x.getLeagueName().equals(countryDetails.getLeagueName())
 				&& x.getCountryname().equals(countryDetails.getCountryName()))
-				.findFirst())
-		.map(x -> x.get())
-		.orElse(null);
+		.findFirst();
+		try {
+			data = resp.get();
+		}catch (Exception e) {
+		}
+		return data;
 	}
 	
 	public static String generateRequestId() {

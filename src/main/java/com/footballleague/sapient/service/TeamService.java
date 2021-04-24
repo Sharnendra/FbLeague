@@ -20,7 +20,7 @@ public class TeamService {
 		try {
 			TeamBean[] teams = apiExchange.getTeams(leagueId);
 			if(GenericsConstantUtilty.isNullOrEmpty(teams)) {
-				throw new FbStrandingResponseException(ErrorConstants.NO_TEAMS_FOUND);
+				throw new FbStrandingResponseException(ErrorConstants.TEAMS_NOT_FOUND);
 			}
 			return GenericsConstantUtilty.teamBeanResponseTranslator(teams);
 		}catch (Exception e) {

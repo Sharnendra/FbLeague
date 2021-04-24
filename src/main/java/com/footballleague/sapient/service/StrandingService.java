@@ -44,7 +44,7 @@ public class StrandingService {
 			StrandingBean strandingBean = GenericsConstantUtilty
 					.getStrandingDetails(response.getStrandings(), countryDetails);
 			if(GenericsConstantUtilty.isNullOrEmpty(strandingBean)) {
-				response.setMessage("Data Not Found for Selec country, team, and leaue");
+				response.setMessage(ErrorConstants.DATA_NOT_FOUND_FOR_STRNDING);
 				response.setStrandings(null);
 				return response;
 			}
