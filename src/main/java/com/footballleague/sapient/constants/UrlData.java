@@ -5,6 +5,7 @@ public class UrlData {
 	private String getLeagues;
 	private String getCountries;
 	private String getTeams;
+	private String getStranding;
 	public String getGetLeagues() {
 		return getLeagues;
 	}
@@ -22,5 +23,11 @@ public class UrlData {
 	}
 	public void setGetTeams(String getTeams) {
 		this.getTeams = getTeams;
+	}
+	public String getGetStranding() {
+		return getStranding;
+	}
+	public void setGetStranding(String getStranding) {
+		this.getStranding = getStranding;
 	}
 }

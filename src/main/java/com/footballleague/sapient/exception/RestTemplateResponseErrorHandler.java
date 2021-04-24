@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus.Series;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.ResponseErrorHandler;
 
-import com.footballleague.sapient.constants.GenericsConstantUtilty;
+import com.footballleague.sapient.util.GenericsConstantUtilty;
 import com.google.common.io.ByteStreams;
 
 public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {

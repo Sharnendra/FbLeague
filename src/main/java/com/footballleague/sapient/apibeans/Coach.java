@@ -13,7 +13,7 @@ public class Coach {
 	private String coachCountry;
 	
 	@JsonProperty("coach_age")
-    private int coachAge;
+    private String coachAge;
 
 	public String getCoachName() {
 		return coachName;
@@ -31,11 +31,11 @@ public class Coach {
 		this.coachCountry = coachCountry;
 	}
 
-	public int getCoachAge() {
+	public String getCoachAge() {
 		return coachAge;
 	}
 
-	public void setCoachAge(int coachAge) {
+	public void setCoachAge(String coachAge) {
 		this.coachAge = coachAge;
 	}
 }

@@ -22,13 +22,13 @@ public class Player {
 	private String playerType;
 	
 	@JsonProperty("player_age")
-	private int playerAge;
+	private String playerAge;
 	
 	@JsonProperty("player_match_played")
-	private int playerMatchPlayed;
+	private String playerMatchPlayed;
 	
 	@JsonProperty("player_goals")
-	private int playerGoals;
+	private String playerGoals;
 	
 	public String getPlayerKey() {
 		return playerKey;
@@ -70,27 +70,27 @@ public class Player {
 		this.playerType = playerType;
 	}
 
-	public int getPlayerAge() {
+	public String getPlayerAge() {
 		return playerAge;
 	}
 
-	public void setPlayerAge(int playerAge) {
+	public void setPlayerAge(String playerAge) {
 		this.playerAge = playerAge;
 	}
 
-	public int getPlayerMatchPlayed() {
+	public String getPlayerMatchPlayed() {
 		return playerMatchPlayed;
 	}
 
-	public void setPlayerMatchPlayed(int playerMatchPlayed) {
+	public void setPlayerMatchPlayed(String playerMatchPlayed) {
 		this.playerMatchPlayed = playerMatchPlayed;
 	}
 
-	public int getPlayerGoals() {
+	public String getPlayerGoals() {
 		return playerGoals;
 	}
 
-	public void setPlayerGoals(int playerGoals) {
+	public void setPlayerGoals(String playerGoals) {
 		this.playerGoals = playerGoals;
 	}
 

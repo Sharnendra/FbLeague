@@ -9,7 +9,7 @@ resources:
 
 competitions:
   urls:
-    getLeagues: https://apiv2.apifootball.com/?action=get_leagues&country_id=41&APIkey=${api-key}
+    getLeagues: https://apiv2.apifootball.com/?action=get_leagues&country_id={countryId}&APIkey=${api-key}
     getCountries: https://apiv2.apifootball.com/?action=get_countries&APIkey=${api-key}
-    getTeams: https://apiv2.apifootball.com/?action=get_teams&league_id=148&APIkey=${api-key}
-    
+    getTeams: https://apiv2.apifootball.com/?action=get_teams&league_id={leagueId}&APIkey=${api-key}
+    getStranding: https://apiv2.apifootball.com/?action=get_standings&league_id={leagueId}&APIkey=${api-key}

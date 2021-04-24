@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LeagueBean {
+public class SingleRequestBean {
 
 	@JsonProperty("country_id")
-	private String countryId;
+	private int countryId;
 	
 	@JsonProperty("country_name")
 	private String countryName;
@@ -17,12 +17,18 @@ public class LeagueBean {
 	
 	@JsonProperty("league_name")
 	private String leagueName;
+	
+	@JsonProperty("team_id")
+	private String teamId;
+	
+	@JsonProperty("team_name")
+	private String teamName;
 
-	public String getCountryId() {
+	public int getCountryId() {
 		return countryId;
 	}
 
-	public void setCountryId(String countryId) {
+	public void setCountryId(int countryId) {
 		this.countryId = countryId;
 	}
 
@@ -48,6 +54,22 @@ public class LeagueBean {
 
 	public void setLeagueName(String leagueName) {
 		this.leagueName = leagueName;
+	}
+
+	public String getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(String teamId) {
+		this.teamId = teamId;
+	}
+
+	public String getTeamName() {
+		return teamName;
+	}
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 	
 }

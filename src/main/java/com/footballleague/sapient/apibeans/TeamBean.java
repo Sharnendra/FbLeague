@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TeamBean {
 
 	@JsonProperty("team_key")
-	private int teamKey;
+	private String teamKey;
 	
 	@JsonProperty("team_name")
 	private String teamName;
@@ -17,13 +17,16 @@ public class TeamBean {
 	@JsonProperty("team_badge")
 	private String teamBadge;
 	
+	@JsonProperty("players")
 	private List<Player> players;
+	
+	@JsonProperty("coaches")
 	private List<Coach> coaches;
 	
-	public int getTeamKey() {
+	public String getTeamKey() {
 		return teamKey;
 	}
-	public void setTeamKey(int teamKey) {
+	public void setTeamKey(String teamKey) {
 		this.teamKey = teamKey;
 	}
 	public String getTeamName() {
